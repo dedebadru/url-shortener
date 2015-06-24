@@ -1,4 +1,5 @@
 class ShortenerDetail < ActiveRecord::Base
+	belongs_to :shortener
 
 	def self.recording(shortener, request)
 		useragent = UserAgent.parse(request.env['HTTP_USER_AGENT'])
@@ -7,7 +8,6 @@ class ShortenerDetail < ActiveRecord::Base
 			ip: Shortener.ip,
 			os: os(request.env['HTTP_USER_AGENT']),
 			browser: "#{useragent.browser} #{useragent.version} "
-
 		})
 	end
 
