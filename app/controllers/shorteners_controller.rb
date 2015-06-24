@@ -22,6 +22,7 @@ class ShortenersController < ApplicationController
   end
 
   def redirect
+    ShortenerDetail.recording(@shortener, request)
     redirect_to @shortener.destination_url
   end
 

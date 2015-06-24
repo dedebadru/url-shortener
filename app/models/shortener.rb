@@ -13,21 +13,6 @@ class Shortener < ActiveRecord::Base
 	  Socket.do_not_reverse_lookup = orig
 	end
 
-	def self.os(request)
-		case request.downcase
-			when /mac/i
-		    "Mac"
-		  when /windows/i
-		    "Windows"
-		  when /linux/i
-		    "Linux"
-		  when /unix/i
-		    "Unix"
-		  else
-		    "Unknown"
-		end
-	end
-
 	protected
 		def set_value
 			self.own_ip = self.class.ip
