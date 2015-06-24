@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th width="5%">No</th>
+      <th>Destination URL</th>
+      <th>Short URL</th>
+      <th>Clicks</th>
+      <th width="22%">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shorteners.each_with_index do |shortener, i| %>
+      <tr>
+        <td class="center"><%= i+1 %></td>
+        <td><%= link_destination(shortener) %></td>
+        <td><%= link_short(shortener) %></td>
+        <td class="center"><%#= shortener.nationality %></td>
+        <td class="center">
+          <%= link_to 'Edit', edit_shortener_path(shortener), remote: true %> | 
+          <%=
+            link_to 'Delete', shortener, method: :delete,
+            data: { confirm: "are you sure?"}, remote: true
+          %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

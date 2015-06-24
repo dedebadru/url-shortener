@@ -43,3 +43,5 @@ group :development, :test do
   gem 'spring'
 end
 
+# get browser info 
+gem 'useragent'

@@ -1,0 +1,6 @@
+<% if @shortener.errors.present? %>
+	$("#form").html("<%= j render 'shorteners/shared/form' %>");
+<% else %>
+	$("#form").html("<%= j render 'shorteners/shared/form' %>");
+	$("#list").html("<%= j render 'shorteners/shared/list' %>");
+<% end %>

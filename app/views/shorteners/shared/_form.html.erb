@@ -1,0 +1,17 @@
+<%= form_for @shortener, remote: true do |f| %>
+  <div class="group">
+	  <%= f.text_field :destination_url,placeholder: "Destination URL" %>
+	  <span class="error_message">
+	  	<%= f.object.errors[:destination_url].join(" and ") rescue "" %>
+	  </span>
+  </div>
+  <div class="group">
+	  <%= f.text_field :short_url,placeholder: "Short URL" %>
+	  <span class="error_message">
+	  	<%= f.object.errors[:short_url].join(" and ") rescue "" %>
+	  </span>
+  </div>
+  <div class="group">
+  	<%= f.submit %>
+  </div>
+<% end %>
