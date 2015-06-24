@@ -2,7 +2,7 @@ class Shortener < ActiveRecord::Base
 	before_validation :set_value
   has_many :shortener_details
   validates :short_url, :destination_url, :own_ip, presence: true
-  validates :short_url, :destination_url, uniqueness: true
+  validates :short_url, uniqueness: true
 	scope :list, lambda { where(own_ip: self.ip) }
 
 	def self.ip
