@@ -14,7 +14,7 @@
         <td class="center"><%= i+1 %></td>
         <td><%= link_destination(shortener) %></td>
         <td><%= link_short(shortener) %></td>
-        <td class="center"><%#= shortener.nationality %></td>
+        <td class="center"><%= shortener.shortener_details.size %></td>
         <td class="center">
           <%= link_to 'Edit', edit_shortener_path(shortener), remote: true %> | 
           <%=
