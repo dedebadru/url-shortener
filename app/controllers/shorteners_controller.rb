@@ -1,6 +1,6 @@
 class ShortenersController < ApplicationController
   before_action :shorteners
-  before_action :set_shortener, only: [:edit, :update, :destroy, :redirect]
+  before_action :set_shortener, only: [:edit, :update, :destroy, :redirect, :stats]
   before_action :set_new_shortener, only: [:index, :create]
 
   def create
@@ -24,6 +24,13 @@ class ShortenersController < ApplicationController
   def redirect
     ShortenerDetail.recording(@shortener, request)
     redirect_to @shortener.destination_url
+  end
+
+  def stats
+    respond_to do |format|
+      format.html
+      format.json  { render file: "/shorteners/stats.json.erb", content_type: 'application/json' }
+    end
   end
 
   private

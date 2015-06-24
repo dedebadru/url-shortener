@@ -1,0 +1,6 @@
+{
+  destination_url: <%= @shortener.destination_url %>,
+  short_url: <%= @shortener.short_url %>,
+  shortener: <%= @shortener.shortener_details.select("id, ip, os, browser").to_json.html_safe %>,
+  clicks: <%= @shortener.shortener_details.size %>
+}
